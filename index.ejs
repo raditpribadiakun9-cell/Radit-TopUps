@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>RADIT TOPUPS</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>RADIT TOPUPS</h1>
+        <nav>
+            <a href="/admin/login">Admin Panel</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Pilih Game</h2>
+        <div class="games">
+            <% games.forEach(game => { %>
+                <div class="game-card">
+                    <h3><%= game.name %></h3>
+                    <p><%= game.description %></p>
+                    <p>Harga contoh: Rp <%= game.price %></p>
+                    <a href="/game/<%= game.id %>">Top Up Sekarang</a>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+</body>
+</html>
