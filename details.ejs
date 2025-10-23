@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Top Up <%= game.name %> - RADIT TOPUPS</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>RADIT TOPUPS</h1>
+        <a href="/">Kembali</a>
+    </header>
+    <main>
+        <h2>Top Up <%= game.name %></h2>
+        <p><%= game.description %></p>
+        <form action="/order/<%= game.id %>" method="POST" enctype="multipart/form-data">
+            <label>Player ID:</label>
+            <input type="text" name="player_id" required>
+            
+            <label>Nominal:</label>
+            <input type="text" name="nominal" required>
+
+            <label>Bukti Pembayaran (Dana 089603266259):</label>
+            <input type="file" name="payment_proof" required>
+
+            <button type="submit">Kirim Pesanan</button>
+        </form>
+    </main>
+</body>
+</html>
