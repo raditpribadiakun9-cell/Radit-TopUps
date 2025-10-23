@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kelola Game - RADIT TOPUPS</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Kelola Game</h1>
+        <nav>
+            <a href="/admin/dashboard">Dashboard</a>
+            <a href="/admin/logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Tambah Game Baru</h2>
+        <form action="/admin/games/add" method="POST">
+            <label>Nama Game:</label>
+            <input type="text" name="name" required>
+
+            <label>Deskripsi:</label>
+            <input type="text" name="description" required>
+
+            <label>Harga:</label>
+            <input type="number" name="price" required>
+
+            <button type="submit">Tambah</button>
+        </form>
+
+        <h2>Daftar Game</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th>Deskripsi</th>
+                    <th>Harga</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% games.forEach(game => { %>
+                    <tr>
+                        <td><%= game.id %></td>
+                        <td><%= game.name %></td>
+                        <td><%= game.description %></td>
+                        <td><%= game.price %></td>
+                        <td>
+                            <form action="/admin/games/delete/<%= game.id %>" method="POST" style="display:inline;">
+                                <button type="submit">Hapus</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
